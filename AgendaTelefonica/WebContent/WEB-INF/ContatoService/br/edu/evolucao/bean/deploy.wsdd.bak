@@ -1,0 +1,46 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ContatoService WSDL service -->
+
+  <service name="Contato" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://bean.evolucao.edu.br"/>
+      <parameter name="wsdlServiceElement" value="ContatoService"/>
+      <parameter name="schemaQualified" value="http://bean.evolucao.edu.br"/>
+      <parameter name="wsdlServicePort" value="Contato"/>
+      <parameter name="className" value="br.edu.evolucao.bean.ContatoSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Contato"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getId" qname="operNS:getId" xmlns:operNS="http://bean.evolucao.edu.br" returnQName="retNS:getIdReturn" xmlns:retNS="http://bean.evolucao.edu.br" returnType="rtns:long" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setId" qname="operNS:setId" xmlns:operNS="http://bean.evolucao.edu.br" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://bean.evolucao.edu.br" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="setNome" qname="operNS:setNome" xmlns:operNS="http://bean.evolucao.edu.br" soapAction="" >
+        <parameter qname="pns:nome" xmlns:pns="http://bean.evolucao.edu.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getTelefone" qname="operNS:getTelefone" xmlns:operNS="http://bean.evolucao.edu.br" returnQName="retNS:getTelefoneReturn" xmlns:retNS="http://bean.evolucao.edu.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setTelefone" qname="operNS:setTelefone" xmlns:operNS="http://bean.evolucao.edu.br" soapAction="" >
+        <parameter qname="pns:telefone" xmlns:pns="http://bean.evolucao.edu.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getNome" qname="operNS:getNome" xmlns:operNS="http://bean.evolucao.edu.br" returnQName="retNS:getNomeReturn" xmlns:retNS="http://bean.evolucao.edu.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getEmail" qname="operNS:getEmail" xmlns:operNS="http://bean.evolucao.edu.br" returnQName="retNS:getEmailReturn" xmlns:retNS="http://bean.evolucao.edu.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setEmail" qname="operNS:setEmail" xmlns:operNS="http://bean.evolucao.edu.br" soapAction="" >
+        <parameter qname="pns:email" xmlns:pns="http://bean.evolucao.edu.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getTelefone setEmail setNome setTelefone setId getEmail getId getNome"/>
+
+  </service>
+</deployment>

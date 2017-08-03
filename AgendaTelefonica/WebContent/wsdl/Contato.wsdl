@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://bean.evolucao.edu.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://bean.evolucao.edu.br" xmlns:intf="http://bean.evolucao.edu.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://bean.evolucao.edu.br" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getId">
+    <complexType/>
+   </element>
+   <element name="getIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getIdReturn" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setIdResponse">
+    <complexType/>
+   </element>
+   <element name="setNome">
+    <complexType>
+     <sequence>
+      <element name="nome" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setNomeResponse">
+    <complexType/>
+   </element>
+   <element name="getTelefone">
+    <complexType/>
+   </element>
+   <element name="getTelefoneResponse">
+    <complexType>
+     <sequence>
+      <element name="getTelefoneReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setTelefone">
+    <complexType>
+     <sequence>
+      <element name="telefone" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setTelefoneResponse">
+    <complexType/>
+   </element>
+   <element name="getNome">
+    <complexType/>
+   </element>
+   <element name="getNomeResponse">
+    <complexType>
+     <sequence>
+      <element name="getNomeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getEmail">
+    <complexType/>
+   </element>
+   <element name="getEmailResponse">
+    <complexType>
+     <sequence>
+      <element name="getEmailReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setEmail">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setEmailResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="setEmailResponse">
+
+      <wsdl:part element="impl:setEmailResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setIdRequest">
+
+      <wsdl:part element="impl:setId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEmailRequest">
+
+      <wsdl:part element="impl:getEmail" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setTelefoneRequest">
+
+      <wsdl:part element="impl:setTelefone" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setTelefoneResponse">
+
+      <wsdl:part element="impl:setTelefoneResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdResponse">
+
+      <wsdl:part element="impl:getIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTelefoneResponse">
+
+      <wsdl:part element="impl:getTelefoneResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNomeRequest">
+
+      <wsdl:part element="impl:getNome" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNomeResponse">
+
+      <wsdl:part element="impl:getNomeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setEmailRequest">
+
+      <wsdl:part element="impl:setEmail" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEmailResponse">
+
+      <wsdl:part element="impl:getEmailResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setNomeResponse">
+
+      <wsdl:part element="impl:setNomeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setIdResponse">
+
+      <wsdl:part element="impl:setIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setNomeRequest">
+
+      <wsdl:part element="impl:setNome" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdRequest">
+
+      <wsdl:part element="impl:getId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTelefoneRequest">
+
+      <wsdl:part element="impl:getTelefone" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Contato">
+
+      <wsdl:operation name="getId">
+
+         <wsdl:input message="impl:getIdRequest" name="getIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getIdResponse" name="getIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setId">
+
+         <wsdl:input message="impl:setIdRequest" name="setIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setIdResponse" name="setIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setNome">
+
+         <wsdl:input message="impl:setNomeRequest" name="setNomeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setNomeResponse" name="setNomeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTelefone">
+
+         <wsdl:input message="impl:getTelefoneRequest" name="getTelefoneRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTelefoneResponse" name="getTelefoneResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setTelefone">
+
+         <wsdl:input message="impl:setTelefoneRequest" name="setTelefoneRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setTelefoneResponse" name="setTelefoneResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNome">
+
+         <wsdl:input message="impl:getNomeRequest" name="getNomeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNomeResponse" name="getNomeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEmail">
+
+         <wsdl:input message="impl:getEmailRequest" name="getEmailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getEmailResponse" name="getEmailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setEmail">
+
+         <wsdl:input message="impl:setEmailRequest" name="setEmailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setEmailResponse" name="setEmailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ContatoSoapBinding" type="impl:Contato">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setNome">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setNomeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setNomeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTelefone">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTelefoneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTelefoneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setTelefone">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setTelefoneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setTelefoneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNome">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNomeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNomeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEmail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getEmailRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getEmailResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setEmail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setEmailRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setEmailResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ContatoService">
+
+      <wsdl:port binding="impl:ContatoSoapBinding" name="Contato">
+
+         <wsdlsoap:address location="http://localhost:8080/AgendaTelefonica/services/Contato"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

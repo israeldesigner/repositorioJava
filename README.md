@@ -1,2 +1,0 @@
-# repositorioJava
-projetos java

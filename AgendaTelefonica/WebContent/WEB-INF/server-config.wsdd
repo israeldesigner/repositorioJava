@@ -1,0 +1,78 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\javaweb\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\AgendaTelefonica\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="Contato" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="getId" qname="ns1:getId" returnQName="ns1:getIdReturn" returnType="xsd:long" soapAction="" xmlns:ns1="http://bean.evolucao.edu.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:operation name="setId" qname="ns2:setId" soapAction="" xmlns:ns2="http://bean.evolucao.edu.br">
+   <ns1:parameter qname="ns2:id" type="xsd:long" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="setNome" qname="ns3:setNome" soapAction="" xmlns:ns3="http://bean.evolucao.edu.br">
+   <ns1:parameter qname="ns3:nome" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getTelefone" qname="ns4:getTelefone" returnQName="ns4:getTelefoneReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://bean.evolucao.edu.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="setTelefone" qname="ns5:setTelefone" soapAction="" xmlns:ns5="http://bean.evolucao.edu.br">
+   <ns1:parameter qname="ns5:telefone" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getNome" qname="ns6:getNome" returnQName="ns6:getNomeReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://bean.evolucao.edu.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="getEmail" qname="ns7:getEmail" returnQName="ns7:getEmailReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://bean.evolucao.edu.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="setEmail" qname="ns8:setEmail" soapAction="" xmlns:ns8="http://bean.evolucao.edu.br">
+   <ns1:parameter qname="ns8:email" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="getTelefone setEmail setNome setTelefone setId getEmail getId getNome"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Contato"/>
+  <ns1:parameter name="className" value="br.edu.evolucao.bean.Contato"/>
+  <ns1:parameter name="wsdlServicePort" value="Contato"/>
+  <ns1:parameter name="schemaQualified" value="http://bean.evolucao.edu.br"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://bean.evolucao.edu.br"/>
+  <ns1:parameter name="wsdlServiceElement" value="ContatoService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>
